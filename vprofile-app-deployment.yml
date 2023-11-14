@@ -17,7 +17,7 @@ spec:
       containers:
       - name: vproapp
         # image: {{ .Values.appimage}}
-        image: yemisiomonijo/vprofileapp:V21
+        image: yemisiomonijo/vprofileapp:V22
         ports:
         - name: vproapp-port
           containerPort: 8080
