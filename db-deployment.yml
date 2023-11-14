@@ -17,7 +17,6 @@ spec:
       containers:
       - name: vprodb
         image: yemisiomonijo/vprofiledb:1
-        # image: vprofile/vprofiledb:latest #WORKING
         ports:
         - name: vprodb-port
           containerPort: 3306
