@@ -37,7 +37,7 @@ pipeline {
                             sh "git config user.email jenkins@gmail.com"
                             sh "git config user.name jenkins"
                             sh "cat vprofile-app-deployment.yml"
-                            sh "sed -i 's|image: ${DOCKER_REGISTRY}:.*|image: ${DOCKER_TAG}|g' vprofile-app-deployment.yml"
+                            sh "sed -i 's|image: ${DOCKER_REGISTRY}:.*|image: $DOCKER_REGISTRY:${DOCKER_TAG}|g' vprofile-app-deployment.yml"
                             sh "cat vprofile-app-deployment.yml"
                             sh "git add vprofile-app-deployment.yml"
                             sh "git commit -m 'Update done by Jenkins Job ${env.JOB_NAME} Build No: ${env.BUILD_NUMBER}'"
