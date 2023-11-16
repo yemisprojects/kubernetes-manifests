@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: vprofile-app-alb
+  namespace: vprofile
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/load-balancer-name: vprofileapp-ingress
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: my-aws-ingress-class
+  defaultBackend:
+    service:
+      name: vproapp-service
+      port:
+        number: 80
+  rules:
+    - host: vprofile.devopsprotech.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: vproapp-service
+                port:
+                  number: 80
