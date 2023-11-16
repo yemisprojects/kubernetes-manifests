@@ -32,9 +32,9 @@ pipeline {
                             sh "git config user.email jenkins@gmail.com"
                             sh "git config user.name jenkins"
                             sh "cat webapp/templates/vprofile-app-deployment.yml"
-                            sh "sed -i 's|image: ${DOCKER_REGISTRY}:.*|image: $DOCKER_REGISTRY:${DOCKER_TAG}|g' webapp/templatesvprofile-app-deployment.yml"
+                            sh "sed -i 's|image: ${DOCKER_REGISTRY}:.*|image: $DOCKER_REGISTRY:${DOCKER_TAG}|g' webapp/templates/vprofile-app-deployment.yml"
                             sh "cat webapp/templates/vprofile-app-deployment.yml"
-                            sh "git add webapp/templatesvprofile-app-deployment.yml"
+                            sh "git add webapp/templates/vprofile-app-deployment.yml"
                             sh "git commit -m 'Update done by Jenkins Job ${env.JOB_NAME} Build No: ${env.BUILD_NUMBER}'"
                             sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/kubernetes-manifests.git HEAD:main"
                         }
