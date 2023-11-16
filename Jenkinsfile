@@ -17,15 +17,10 @@ pipeline {
 
     stages {
 
-        // stage('Git Checkout'){
-        //     steps{
-        //         git branch: 'develop', url: 'https://github.com/yemisprojects/eks-app.git'
-        //     }
-        // }
-
         stage('FileSystem scan') {
             steps {
-                sh "trivy fs . -f json -o filesystem_scanresults.json --clear-cache"
+                sh "trivy fs . | tee filesystem_scanresults.txt"
+                sh "trivy fs . -f json -o filesystem_scanresults.json --severity LOW --exit-code 0 --clear-cache"
             }
         }
 
