@@ -9,7 +9,7 @@ spec:
     protocol: TCP
   selector:
     app: vproapp
-  type: NodePort
+  type: ClusterIP
 
 # spec:
 #   type: NodePort
