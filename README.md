@@ -1,8 +1,8 @@
 # DevSecOps CI/CD with Jenkins and ArgoCD
 
 This repository contains the helm charts and Jenkinsfile used to automate the Continous Deployment phase of a CI/CD pipeline to EKS. Continous delivery is accomplished using ArgoCD. This repo is intended to be used with the two repositories listed below in order.
-- [eks-infra](https://github.com/yemisprojects/eks-infra) (contains terraform code and github workflow to automate EKS deployment)
-- [eks-app](https://github.com/yemisprojects/eks-app) (contains application source code to be containerized)
+- [eks-infra](https://github.com/yemisprojects/eks-infra) repo: contains terraform code and github workflow to automate EKS deployment
+- [eks-app](https://github.com/yemisprojects/eks-app) repo: contains application source code to be containerized
 
 ## Summary of Helm charts
 A snippet of the templates is shown below
