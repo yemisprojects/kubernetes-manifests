@@ -8,7 +8,6 @@ pipeline {
 
     options {
         timeout(time: 40, unit: 'MINUTES')
-        /*parallelsAlwaysFailFast()*/
     }
 
     environment {
@@ -20,7 +19,7 @@ pipeline {
         stage('FileSystem scan') {
             steps {
                 sh "trivy fs . | tee helm_filesystem_scanresults.txt"
-                sh "trivy fs . -f json -o filesystem_scanresults.json --severity LOW --exit-code 0 --clear-cache" //UPDATE BASED ON SEVERITY
+                sh "trivy fs . -f json -o helm_filesystem_scanresults.json --severity LOW --exit-code 0 --clear-cache" //UPDATE BASED ON SEVERITY
             }
         }
 
@@ -60,7 +59,7 @@ pipeline {
                         "Build Number: ${env.BUILD_NUMBER}<br/>" +
                         "URL: ${env.BUILD_URL}<br/>",
                 to: 'yemisiomonijo20@yahoo.com',
-                attachmentsPattern: 'filesystem_scanresults.json,image_scan.txt,image_scanresults.json'
+                attachmentsPattern: 'elm_filesystem_scanresults.txt'
 
             cleanWs(    
                     cleanWhenNotBuilt: false,
