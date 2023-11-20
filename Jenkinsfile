@@ -58,7 +58,7 @@ pipeline {
                 body: "Project: ${env.JOB_NAME}<br/>" +
                         "Build Number: ${env.BUILD_NUMBER}<br/>" +
                         "URL: ${env.BUILD_URL}<br/>",
-                to: 'yemisiomonijo20@yahoo.com',
+                to: 'dummyuser@yahoo.com',
                 attachmentsPattern: 'helm_filesystem_scanresults.txt'
 
             cleanWs(    
