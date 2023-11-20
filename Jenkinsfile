@@ -61,13 +61,13 @@ pipeline {
                 to: 'yemisiomonijo20@yahoo.com',
                 attachmentsPattern: 'helm_filesystem_scanresults.txt'
 
-            // cleanWs(    
-            //         cleanWhenNotBuilt: false,
-            //         cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenSuccess: true, cleanWhenUnstable: true,
-            //         deleteDirs: true,
-            //         disableDeferredWipeout: true,
-            //         notFailBuild: true
-            // )
+            cleanWs(    
+                    cleanWhenNotBuilt: false,
+                    cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenSuccess: true, cleanWhenUnstable: true,
+                    deleteDirs: true,
+                    disableDeferredWipeout: true,
+                    notFailBuild: true
+            )
         }
 
     }
