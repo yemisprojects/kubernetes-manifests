@@ -19,7 +19,7 @@ pipeline {
         stage('FileSystem scan') {
             steps {
                 sh "trivy fs --scanners vuln,config . | tee helm_filesystem_scanresults.txt"
-                sh "trivy fs --scanners vuln,config -f json -o helm_filesystem_scanresults.json --severity LOW --exit-code 0 --clear-cache ." //UPDATE BASED ON SEVERITY
+                sh "trivy fs --scanners vuln,config --severity LOW --exit-code 0 --clear-cache ." //UPDATE EXIT CODE TO FAIL
             }
         }
 
