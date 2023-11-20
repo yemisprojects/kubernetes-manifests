@@ -18,8 +18,8 @@ pipeline {
 
         stage('FileSystem scan') {
             steps {
-                sh "trivy fs . | tee helm_filesystem_scanresults.txt"
-                sh "trivy fs . -f json -o helm_filesystem_scanresults.json --severity LOW --exit-code 0 --clear-cache" //UPDATE BASED ON SEVERITY
+                sh "trivy fs --security-checks vuln,config . | tee helm_filesystem_scanresults.txt"
+                sh "trivy fs --security-checks vuln,config -f json -o helm_filesystem_scanresults.json --severity LOW --exit-code 0 --clear-cache ." //UPDATE BASED ON SEVERITY
             }
         }
 
@@ -59,15 +59,15 @@ pipeline {
                         "Build Number: ${env.BUILD_NUMBER}<br/>" +
                         "URL: ${env.BUILD_URL}<br/>",
                 to: 'yemisiomonijo20@yahoo.com',
-                attachmentsPattern: 'elm_filesystem_scanresults.txt'
+                attachmentsPattern: 'helm_filesystem_scanresults.txt'
 
-            cleanWs(    
-                    cleanWhenNotBuilt: false,
-                    cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenSuccess: true, cleanWhenUnstable: true,
-                    deleteDirs: true,
-                    disableDeferredWipeout: true,
-                    notFailBuild: true
-            )
+            // cleanWs(    
+            //         cleanWhenNotBuilt: false,
+            //         cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenSuccess: true, cleanWhenUnstable: true,
+            //         deleteDirs: true,
+            //         disableDeferredWipeout: true,
+            //         notFailBuild: true
+            // )
         }
 
     }
