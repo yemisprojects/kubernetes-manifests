@@ -31,4 +31,5 @@ tree webapp/templates
 <img alt="Argo CD" src="https://github.com/yemisprojects/kubernetes-manifests/blob/main/images/argocd_view.png">
 
 ## App Login page
+<img alt="Login page" src="https://github.com/yemisprojects/kubernetes-manifests/blob/main/images/app_login_page.png">
 
