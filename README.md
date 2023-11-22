@@ -27,6 +27,10 @@ tree webapp/templates
 - The application's pods will be kept at a target utiilization of 50 and scaled horizontally using the Horizontal pod autoscaler(Ref: [hpa.yml](https://github.com/yemisprojects/kubernetes-manifests/blob/main/webapp/templates/hpa.yml)). 
 - The init containers are used to ensure the application is only started after DB and Memcache are reachable by way of a `nslookup` (Ref: [vprofile-app-deployment.yml](https://github.com/yemisprojects/kubernetes-manifests/blob/main/webapp/templates/vprofile-app-deployment.yml))
 
+## How to use this repo
+
+Follow [step 6](https://github.com/yemisprojects/eks-app#step-6-update-helm-chart-repository) in the eks-app repo
+
 ## Deployed application from Argo CD view
 <img alt="Argo CD" src="https://github.com/yemisprojects/kubernetes-manifests/blob/main/images/argocd_view.png">
 
